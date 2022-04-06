@@ -27,9 +27,11 @@ function no(response) {
       if(response === "no" || response === "n") {
         numberCorrect++;
         alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
+        validResponse = true;
         // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
       } else if (response === "yes" || response === "y") {
         alert("That is incorrect.")
+        validResponse = true;
         // console.log("That is incorrect.")
       } else {
         alert('Invalid input, plese try "Yes", "No", "Y" or "N"');
@@ -49,9 +51,11 @@ function yes(response) {
       if(response === "yes" || response === "y") {
         numberCorrect++;
         alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
+        validResponse = true;
         // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
       } else if (response === "no" || response === "n") {
         alert("That is incorrect.")
+        validResponse = true;
         // console.log("That is incorrect.")
       } else {
         alert('Invalid input, plese try "Yes", "No", "Y" or "N"');

@@ -22,14 +22,14 @@ function no(response) {
     response = "";
   } else {
     response = response.toLowerCase();
-  }
-  if(response == "no" || response == "n") {
-    numberCorrect++;
-    alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
-    // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
-  } else {
-    alert("That is incorrect.")
-    // console.log("That is incorrect.")
+    if(response == "no" || response == "n") {
+      numberCorrect++;
+      alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
+      // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
+    } else {
+      alert("That is incorrect.")
+      // console.log("That is incorrect.")
+    }
   }
 }
 
@@ -38,13 +38,13 @@ function yes(response) {
     response = ""
   } else {
     response = response.toLowerCase();
-  }
-  if(response == "yes" || response == "y") {
-    numberCorrect++;
-    alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
-    // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
-  } else {
-    alert("That is incorrect.")
-    // console.log("That is incorrect.")
+    if(response == "yes" || response == "y") {
+      numberCorrect++;
+      alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
+      // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
+    } else {
+      alert("That is incorrect.")
+      // console.log("That is incorrect.")
+    }
   }
 }

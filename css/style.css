@@ -1,0 +1,22 @@
+body {
+  background-color: rgba(253, 179, 51, 99);
+}
+
+header {
+  text-align: center;
+  color: rgb(0, 26, 48);
+}
+
+main div {
+  width: 500px;
+  border: 4px black solid;
+  border-radius: 10px;
+  padding: 4px;
+  color: white;
+  background-color: rgba(250, 131, 62, 98);
+  margin: 5px auto;
+}  
+
+#name {
+  font-weight: bold;
+}

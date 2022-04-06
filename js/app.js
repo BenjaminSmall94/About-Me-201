@@ -22,13 +22,19 @@ function no(response) {
     response = "";
   } else {
     response = response.toLowerCase();
-    if(response == "no" || response == "n") {
-      numberCorrect++;
-      alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
-      // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
-    } else {
-      alert("That is incorrect.")
-      // console.log("That is incorrect.")
+    validResponse = false;
+    while(!validResponse) {
+      if(response === "no" || response === "n") {
+        numberCorrect++;
+        alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
+        // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
+      } else if (response === "yes" || response === "y") {
+        alert("That is incorrect.")
+        // console.log("That is incorrect.")
+      } else {
+        alert('Invalid input, plese try "Yes", "No", "Y" or "N"');
+        // console.log('Invalid input, plese try "Yes", "No", "Y" or "N"')
+      }
     }
   }
 }
@@ -38,13 +44,19 @@ function yes(response) {
     response = ""
   } else {
     response = response.toLowerCase();
-    if(response == "yes" || response == "y") {
-      numberCorrect++;
-      alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
-      // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
-    } else {
-      alert("That is incorrect.")
-      // console.log("That is incorrect.")
+    validResponse = false;
+    while(!validResponse) {
+      if(response === "yes" || response === "y") {
+        numberCorrect++;
+        alert("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!");
+        // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
+      } else if (response === "no" || response === "n") {
+        alert("That is incorrect.")
+        // console.log("That is incorrect.")
+      } else {
+        alert('Invalid input, plese try "Yes", "No", "Y" or "N"');
+        // console.log('Invalid input, plese try "Yes", "No", "Y" or "N"')
+      }
     }
   }
 }

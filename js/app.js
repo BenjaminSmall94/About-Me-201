@@ -58,7 +58,7 @@ function guessRandomNumber() {
   let userGuess;
   console.log('Guess a number between 1 and 10');
   while(userGuess !== randomNumber && guessesRemaining > 0) {
-    userGuess = prompt(`Guess a number between 1 and 10, you have ${guessesRemaining} guesses remaining`)
+    userGuess = prompt(`Guess a number between 1 and 10, you have ${guessesRemaining} guesses remaining`);
     if (userGuess === null) {
       alert('You have exhausted all your guesses, I am disappointed in your guessing skills');
       return false;
@@ -98,10 +98,15 @@ function getUsername() {
 
 function firstFiveQs() { 
   no('Was Ben born on a Wednesday?');
+  console.log('Was Ben born on a Wednesday?');
   no('Has Ben ever worked for Miracle Ram?');
+  console.log('Has Ben ever worked for Miracle Ram?');
   yes('Does Ben want kids?');
+  console.log('Does Ben want kids?');
   no('Is Ben an only child?');
+  console.log('Is Ben an only child?');
   yes('Does Ben have more Nephews than Neices?');
+  console.log('Does Ben have more Nephews than Neices?');
 }
 
 function no(question) {
@@ -116,7 +121,7 @@ function no(question) {
         validResponse = true;
         // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
       } else if (response === 'yes' || response === 'y') {
-        alert('That is incorrect.');
+        alert('That is incorrect. You have answered ' + numberCorrect + ' questions correctly!');
         validResponse = true;
         // console.log("That is incorrect.")
       } else {
@@ -141,7 +146,7 @@ function yes(question) {
         validResponse = true;
         // console.log("Good job, that's correct! You have answered " + numberCorrect + " questions correctly!")
       } else if (response === 'no' || response === 'n') {
-        alert('That is incorrect.');
+        alert('That is incorrect. You have answered ' + numberCorrect + ' questions correctly!');
         validResponse = true;
         // console.log("That is incorrect.")
       } else {

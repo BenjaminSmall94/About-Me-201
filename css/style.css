@@ -1,5 +1,24 @@
 body {
   background-color: rgba(253, 179, 51, 99);
+  font-family: sans-serif;
+}
+
+h1, h2 {
+  margin: 4px 0px 10px;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: x-large;
+  text-decoration: underline;
+}
+
+p {
+  text-indent: 40px;
+  margin-bottom: 4px;
 }
 
 header {
@@ -8,10 +27,10 @@ header {
 }
 
 main div {
-  width: 500px;
+  width: 640px;
   border: 4px black solid;
   border-radius: 10px;
-  padding: 4px;
+  padding: 5px;
   color: white;
   background-color: rgba(250, 131, 62, 98);
   margin: 5px auto;
@@ -19,4 +38,23 @@ main div {
 
 #name {
   font-weight: bold;
+}
+
+/*
+https://stackoverflow.com/questions/32039846/can-i-use-css-to-add-a-bullet-point-to-any-element 
+How to style ol's and ul's correctly
+*/
+
+li {
+  display: list-item;
+  list-style-position: inside;
+  margin-left: 10px;
+}
+
+ol li {
+  list-style-type: decimal;
+}
+
+ul li {
+  list-style-type: disc;
 }

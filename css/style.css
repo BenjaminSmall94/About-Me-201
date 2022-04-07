@@ -58,3 +58,7 @@ ol li {
 ul li {
   list-style-type: disc;
 }
+
+strong {
+  font-weight: bold;
+}

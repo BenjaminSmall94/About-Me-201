@@ -1,55 +1,65 @@
 'use strict';
-
 let username = getUsername();
 let numberCorrect = 0;
-firstFiveQs();
-guessRandomNumber();
-guessHobby();
+let quizzer = document.getElementById('quizzer');
+quizzer.addEventListener('click', doQuiz);
+console.log(quizzer.textContent);
 
-if(numberCorrect >= 7) {
-  alert('Congatulations ' + username + '! You are a true Benjamin Small superfan! You answered all ' + numberCorrect + ' questions correctly. None can compare to your prowess!! I know we promised you $100 million, but please take this complementary "Atta boy"!!');
-} else if (numberCorrect > 0) {
-  alert('Sorry ' + username + ', you only got ' + numberCorrect + ' correct. You are not a true Benjamin Small superfan, from the bottom of my heart... I pity you. :(');
-} else {
-  alert('Sorry ' + username + ', you did not answer a single question correct. You are an utter disappointment of a person. :(');
+function doQuiz() {
+  let favoriteHobbies = ['Skiing', 'Disc Golf', 'Ping Pong', 'Board Games', 'Hiking'];
+  firstFiveQs();
+  guessRandomNumber();
+  let hobbyResults = guessHobby(6, favoriteHobbies);
+  printHobbyResults(hobbyResults[0], hobbyResults[1]);
+  giveResults();
 }
 
-function guessHobby() {
-  let favoriteHobbies = ['Skiing', 'Disc Golf', 'Ping Pong', 'Board Games', 'Hiking'];
-  let favoriteHobbyString = 'Skiing, Disc Golf, Ping Pong, Board Games, or Hiking';
-  let guessesRemaining = 6;
-  let notGuessed = true;
+function giveResults() {
+  if(numberCorrect >= 7) {
+    alert('Congatulations ' + username + '! You are a true Benjamin Small superfan! You answered all ' + numberCorrect + ' questions correctly. None can compare to your prowess!! I know we promised you $100 million, but please take this complementary "Atta boy"!!');
+  } else if (numberCorrect > 0) {
+    alert('Sorry ' + username + ', you only got ' + numberCorrect + ' correct. You are not a true Benjamin Small superfan, from the bottom of my heart... I pity you. :(');
+  } else {
+    alert('Sorry ' + username + ', you did not answer a single question correct. You are an utter disappointment of a person. :(');
+  }
+}
+
+function guessHobby(guessesRemaining, hobbies) {
   console.log('What is one of my top five favority hobbies?');
-  while(notGuessed && guessesRemaining > 0) {
+  while(guessesRemaining > 0) {
     let userGuess = prompt('What is one of my top five favority hobbies?');
     if(userGuess !== null) {
-      for(let i = 0; i < favoriteHobbies.length; i++) {
-        if(userGuess.toLowerCase() === favoriteHobbies[i].toLowerCase()) {
-          notGuessed = false;
+      for(let i = 0; i < hobbies.length; i++) {
+        if(userGuess.toLowerCase() === hobbies[i].toLowerCase()) {
           numberCorrect++;
-          break;
+          guessesRemaining--;
+          return [false, guessesRemaining];
         }
       }
     } else {
-      guessesRemaining = 0;
-      break;
+      return [true, 0];
     }
     guessesRemaining--;
-    if(notGuessed && guessesRemaining > 1) {
+    if(guessesRemaining > 1) {
       alert(`That is incorrect, please guess again. You have ${guessesRemaining} guesses left`);
-    } else if (notGuessed && guessesRemaining === 1) {
+    } else if (guessesRemaining === 1) {
       alert('That is incorrect, please guess again. You have one guess left');
     }
   }
+  return [true, 0];
+}
+
+function printHobbyResults(notGuessed, guessesRemaining) {
+  let favoriteHobbyString = 'Skiing, Disc Golf, Ping Pong, Board Games, or Hiking';
   if(notGuessed) {
     alert(`You have exhausted all your guesses, correct answers include ${favoriteHobbyString}`);
   } else if (guessesRemaining === 5) {
     alert(`YOU ANSWERED CORRECTLY!! It only took you 1 guess. Correct answers include ${favoriteHobbyString}`);
   } else {
-    alert(`YOU ANSWERED CORRECTLY!! It only took you ${6 - guessesRemaining} guesses. Correct answers include ${favoriteHobbyString}`);
+    alert(`YOU ANSWERED CORRECTLY!! It only took you ${6 - guessesRemaining} guesses. Correct answers include ${favoriteHobbyString}.`);
   }
-  return notGuessed;
 }
+
 
 function guessRandomNumber() {
   let randomNumber = Math.floor(Math.random() * 10 + 1);
@@ -67,32 +77,28 @@ function guessRandomNumber() {
     if(userGuess === randomNumber && guessesRemaining === 4) {
       alert(`Great Job!! You correctly guessed the number ${randomNumber} in 1 guess!!`);
       numberCorrect++;
+      return true;
     } else if (userGuess === randomNumber) {
       alert(`Great Job!! You correctly guessed the number ${randomNumber} in ${5 - guessesRemaining} guesses!!`);
       numberCorrect++;
+      return true;
     } else if (userGuess < randomNumber) {
-      guessesRemaining--;
       alert(`That is incorrect, you have to guess higher.\r\rYou have ${guessesRemaining} guesses remaining`);
     } else if (userGuess > randomNumber) {
-      guessesRemaining--;
       alert(`That is incorrect, you have to guess lower.\r\rYou have ${guessesRemaining} guesses remaining`);
     } else {
-      guessesRemaining--;
       alert (`Invalid input, please guess a number.\r\rYou have ${guessesRemaining} guesses remaining`);
     }
+    guessesRemaining--;
   }
-  if(guessesRemaining === 0) {
-    alert('You have exhausted all your guesses, I am disappointed in your guessing skills');
-    return false;
-  } else {
-    return true;
-  }
+  alert('You have exhausted all your guesses, I am disappointed in your guessing skills');
+  return false;
 }
 
 function getUsername() {
   let user = prompt('What is your name?');
   document.getElementById('name').textContent = user;
-  alert('Greetings ' + user + ', welcome to the Benjamin Small immersive experience\r\rIf you can answer these simple questions correct we will know you are a true Benjain Small superfan and will be entered into a raffle to win our grand prize of $100 million!!');
+  alert('Greetings ' + user + ', welcome to the Benjamin Small immersive experience\r\rIf you can answer these simple questions correct we will know you are a true Benjain Small superfan and will be entered into a raffle to win our grand prize of $100 million!!\r\rTry Clicking INTERACTIVE');
   return user;
 }
 

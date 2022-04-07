@@ -97,7 +97,7 @@ function getUsername() {
   return user;
 }
 
-function firstFiveQs() { 
+function firstFiveQs() {
   no('Was Ben born on a Wednesday?');
   console.log('Was Ben born on a Wednesday?');
   no('Has Ben ever worked for Miracle Ram?');

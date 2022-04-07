@@ -1,9 +1,4 @@
 'use strict';
-let username = getUsername();
-let numberCorrect = 0;
-let quizzer = document.getElementById('quizzer');
-quizzer.addEventListener('click', doQuiz);
-console.log(quizzer.textContent);
 
 function doQuiz() {
   let favoriteHobbies = ['Skiing', 'Disc Golf', 'Ping Pong', 'Board Games', 'Hiking'];
@@ -164,3 +159,8 @@ function yes(question) {
     }
   }
 }
+
+let username = getUsername();
+let numberCorrect = 0;
+let quizzer = document.getElementById('quizzer');
+quizzer.addEventListener('click', doQuiz);

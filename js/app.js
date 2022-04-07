@@ -58,7 +58,12 @@ function guessRandomNumber() {
   let userGuess;
   console.log('Guess a number between 1 and 10');
   while(userGuess !== randomNumber && guessesRemaining > 0) {
-    userGuess = parseInt(prompt(`Guess a number between 1 and 10, you have ${guessesRemaining} guesses remaining`));
+    userGuess = prompt(`Guess a number between 1 and 10, you have ${guessesRemaining} guesses remaining`)
+    if (userGuess === null) {
+      alert('You have exhausted all your guesses, I am disappointed in your guessing skills');
+      return false;
+    }
+    userGuess = parseInt(userGuess);
     if(userGuess === randomNumber && guessesRemaining === 4) {
       alert(`Great Job!! You correctly guessed the number ${randomNumber} in 1 guess!!`);
       numberCorrect++;

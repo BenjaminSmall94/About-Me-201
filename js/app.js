@@ -35,7 +35,7 @@ function giveResults() {
 
 function guessHobby(guessesRemaining, hobbies) {
   while(guessesRemaining > 0) {
-    let userGuess = prompt('What is one of my top five favority hobbies?');
+    let userGuess = prompt('What is one of my top five favorite hobbies?');
     if(userGuess !== null) {
       for(let i = 0; i < hobbies.length; i++) {
         if(userGuess.toLowerCase() === hobbies[i].toLowerCase()) {

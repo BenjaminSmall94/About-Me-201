@@ -34,7 +34,6 @@ function giveResults() {
 }
 
 function guessHobby(guessesRemaining, hobbies) {
-  console.log('What is one of my top five favority hobbies?');
   while(guessesRemaining > 0) {
     let userGuess = prompt('What is one of my top five favority hobbies?');
     if(userGuess !== null) {
@@ -85,10 +84,8 @@ function arrayToString(array) {
 
 function guessRandomNumber() {
   let randomNumber = Math.floor(Math.random() * 10 + 1);
-  console.log(randomNumber);
   let guessesRemaining = 4;
   let userGuess;
-  console.log('Guess a number between 1 and 10');
   while(userGuess !== randomNumber && guessesRemaining > 0) {
     userGuess = prompt(`Guess a number between 1 and 10, you have ${guessesRemaining} guesses remaining`);
     if (userGuess === null) {
